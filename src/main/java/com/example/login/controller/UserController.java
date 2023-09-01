@@ -2,9 +2,11 @@ package com.example.login.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.login.payloads.req.UserRequest;
@@ -24,6 +26,10 @@ public class UserController {
         // } catch (Exception e) {
         //     return ResponseHandler.responseError(500, e.getMessage(), null);
         // }
+    }
+    @GetMapping
+    public ResponseEntity<?> getUser(@RequestParam(value = "deleted", defaultValue = "") Boolean isDeleted) {
+        return userService.getUserService(isDeleted);
     }
     
     @PostMapping("/login")

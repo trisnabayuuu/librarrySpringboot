@@ -10,5 +10,7 @@ public interface UserService {
     ResponseEntity<?> loginUserService(UserRequest request);
 
     ResponseEntity<?> getUserByIdService(String id);
+
+    ResponseEntity<?> getUserService(Boolean isDeleted);
 }
 

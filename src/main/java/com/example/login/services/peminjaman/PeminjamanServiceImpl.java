@@ -53,8 +53,8 @@ public class PeminjamanServiceImpl implements PeminjamanService {
 
         Peminjaman peminjaman = new Peminjaman(user, book);
         
-        peminjaman.setIsDeleted(true);
-        
+        peminjaman.setStatus(true);
+        //buat object buku
         peminjamanRepository.save(peminjaman);
 
         return ResponseHandler.responseMessage(201, "peminjaman berhasil dilakukan!", true);

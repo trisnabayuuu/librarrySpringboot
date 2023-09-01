@@ -25,29 +25,23 @@ public class BookController {
 
     @PostMapping
     public ResponseEntity<?> createBook(@RequestBody @Valid BookRequest request) {
-        // try {
+
         return bookService.addBookService(request);
-        // } catch (Exception e) {
-        // return ResponseHandler.responseError(500, e.getMessage(), null);
-        // }
+
     }
 
     @GetMapping
     public ResponseEntity<?> getBooks(@RequestParam(value = "deleted", defaultValue = "") Boolean isDeleted) {
-        // try {
+
         return bookService.getBooksService(isDeleted);
-        // } catch (Exception e) {
-        // return ResponseHandler.responseError(500, e.getMessage(), null);
-        // }
+
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getBooksById(@PathVariable String id) {
-        // try {
+ 
         return bookService.getBookByIdService(id);
-        // } catch (Exception e) {
-        // return ResponseHandler.responseError(500, e.getMessage(), null);
-        // }
+
     }
 
     @PutMapping("/{id}")
